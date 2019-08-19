@@ -23,10 +23,13 @@
 		<java.version>1.8</java.version>
 		<spring.cloud.version>Finchley.RC1</spring.cloud.version>
 	</properties>
-	
+
 	<modules>
 		<module>microservice-eureka</module>
 		<module>microservice-zull-gateway</module>
+		<module>Microservice-Account</module>
+		<module>microservice-product</module>
+		<module>microservice-orders</module>
 	</modules>
 	<dependencies>
 		<dependency>
@@ -44,6 +47,18 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok-maven -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+			<exclusions>
+				<exclusion>
+					<groupId>javax.servlet</groupId>
+					<artifactId>servlet-api</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 	</dependencies>
 
@@ -65,4 +80,4 @@
 			</snapshots>
 		</repository>
 	</repositories>
-	</project>
+</project>

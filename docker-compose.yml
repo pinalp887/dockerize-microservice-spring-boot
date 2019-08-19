@@ -19,4 +19,40 @@ services:
     depends_on:
       - discovery
     links:
-      - "discovery" 
+      - "discovery"
+  accounts:
+    image: pinal/service-accounts-api:latest
+    container_name: service-accounts
+    build:
+      context: ./Microservice-Account
+      dockerfile: Dockerfile
+    ports:
+      - "7500:2222"
+    depends_on:
+      - "discovery"
+    links:
+      - "discovery"
+  products:
+    image: pinal/service-products-api:latest
+    container_name: service-products
+    build:
+      context: ./microservice-product
+      dockerfile: Dockerfile
+    ports:
+      - "7501:2222"
+    depends_on:
+      - "accounts"
+    links:
+      - "discovery"
+  orders:
+    image: pinal/service-order-api:latest
+    container_name: service-orders
+    build:
+      context: ./microservice-orders
+      dockerfile: Dockerfile
+    port:
+      - "7502:2222"
+    depends_on:
+      - products
+    links:
+      - "discovery"
