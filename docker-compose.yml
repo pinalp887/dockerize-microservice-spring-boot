@@ -50,7 +50,7 @@ services:
     build:
       context: ./microservice-orders
       dockerfile: Dockerfile
-    port:
+    ports:
       - "7502:2222"
     depends_on:
       - products
